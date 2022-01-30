@@ -1,0 +1,54 @@
+import React, { Fragment, useState } from "react"
+import PropTypes from "prop-types"
+//SweetAlert
+import SweetAlert from "react-bootstrap-sweetalert"
+import QDialog from "./QDialog"
+import SuccessDialog from "./SuccessDialog"
+import CancelDialog from "./CancelDialog"
+
+const Dialog = ({ showDialog, onConfirm, onCancel }) => {
+  const [successDialog, setSuccessDialog] = useState(false)
+  const [cancelDialog, setCancelDialog] = useState(false)
+
+  const handleConfirm = () => {
+    setSuccessDialog(true)
+    onConfirm()
+  }
+  const handleCancel = () => {
+    setCancelDialog(true)
+    onCancel()
+  }
+
+  const handleSuccessDialog = () => {
+    setSuccessDialog(false)
+  }
+
+  const handleCancelDialog = () => {
+    setCancelDialog(false)
+  }
+  return (
+    <Fragment>
+      <QDialog
+        show={showDialog}
+        onConfirm={handleConfirm}
+        onCancel={() => handleCancel()}
+      />
+      <SuccessDialog
+        show={successDialog}
+        onConfirm={() => handleSuccessDialog()}
+      />
+      <CancelDialog
+        show={cancelDialog}
+        onConfirm={() => handleCancelDialog()}
+      />
+    </Fragment>
+  )
+}
+
+Dialog.propTypes = {
+  showDialog: PropTypes.bool,
+  onConfirm: PropTypes.func,
+  onCancel: PropTypes.func,
+}
+
+export default Dialog

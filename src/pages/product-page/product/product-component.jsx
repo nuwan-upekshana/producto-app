@@ -56,8 +56,30 @@ const ProductComponent = ({ match, history, t: translate }) => {
   const [modal, setModal] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
   const [isMenu, setIsMenu] = useState(false)
-  const [materialOptionGroup, setMaterialOptionGroup] = useState([])
-  const [vesselStatusOptionGroup, setProductStatusOptionGroup] = useState([])
+  const [brandOptionGroup, setBrandOptionGroup] = useState([
+    {
+      label: "HP",
+      value: "HP",
+      coloumn: "brand",
+    },
+    {
+      label: "Samsung",
+      value: "Samsung",
+      coloumn: "brand",
+    },
+    {
+      label: "Asus",
+      value: "Asus",
+      coloumn: "brand",
+    },
+  ])
+  const [vesselModelOptionGroup, setProductStatusOptionGroup] = useState([
+    {
+      label: "DEMO",
+      value: "DEMO",
+      coloumn: "model",
+    },
+  ])
 
   // Table
   const { paginatedResult } = useSelector(state => ({
@@ -114,7 +136,7 @@ const ProductComponent = ({ match, history, t: translate }) => {
 
   // Search
   const [searchQuary, setSearchOptions] = useState({
-    coloumns: ["name", "vessel_id"],
+    coloumns: ["brand", "model"],
     searchText: "",
   })
 
@@ -125,15 +147,15 @@ const ProductComponent = ({ match, history, t: translate }) => {
     coloumn: "DocStatus",
     value: 0,
   })
-  const [selectedMaterial, setselectedMaterial] = useState({
+  const [selectedBrand, setselectedBrand] = useState({
     label: "Any",
-    coloumn: "assigned_material",
-    value: 0,
+    coloumn: "brand",
+    value: "",
   })
-  const [selectedProductStatus, setselectedProductStatus] = useState({
+  const [selectedProductModel, setselectedProductModel] = useState({
     label: "Any",
-    coloumn: "current_status",
-    value: 0,
+    coloumn: "model",
+    value: "",
   })
 
   const handleFilterDocStatus = selectedDocStatus => {
@@ -141,14 +163,14 @@ const ProductComponent = ({ match, history, t: translate }) => {
     handleFilters(selectedDocStatus, setFilters, filterQuary)
   }
 
-  const handleFilterMaterial = selectedMaterial => {
+  const handleFilterBrand = selectedBrand => {
     ////debugger
-    setselectedMaterial(selectedMaterial)
-    handleFilters(selectedMaterial, setFilters, filterQuary)
+    setselectedBrand(selectedBrand)
+    handleFilters(selectedBrand, setFilters, filterQuary)
   }
 
-  const handleFilterProductStatus = selected => {
-    setselectedProductStatus(selected)
+  const handleFilterProductModel = selected => {
+    setselectedProductModel(selected)
     handleFilters(selected, setFilters, filterQuary)
   }
 
@@ -166,19 +188,14 @@ const ProductComponent = ({ match, history, t: translate }) => {
 
   const handleClearFilters = () => {
     setFilters([])
-    setselectedMaterial({
+    setselectedBrand({
       label: "Any",
-      coloumn: "assigned_material",
+      coloumn: "model",
       value: 0,
     })
     setSelectedDocStatus({
       label: "Any",
-      coloumn: "DocStatus",
-      value: 0,
-    })
-    setselectedProductStatus({
-      label: "Any",
-      coloumn: "current_status",
+      coloumn: "brand",
       value: 0,
     })
     dispatch(
@@ -440,21 +457,20 @@ const ProductComponent = ({ match, history, t: translate }) => {
 
                                         <div className="p-2">
                                           <Row className="align-items-center">
-                                            <Col md={5}>Material</Col>
+                                            <Col md={5}>Brand</Col>
                                             <Col>
                                               <Select
-                                                value={selectedMaterial}
+                                                value={selectedBrand}
                                                 onChange={option => {
-                                                  handleFilterMaterial(option)
+                                                  handleFilterBrand(option)
                                                 }}
                                                 options={[
                                                   {
                                                     label: "Any",
                                                     value: 0,
-                                                    coloumn:
-                                                      "assigned_material",
+                                                    coloumn: "brand",
                                                   },
-                                                  ...materialOptionGroup,
+                                                  ...brandOptionGroup,
                                                 ]}
                                                 classNamePrefix="select2-selection"
                                               />
@@ -464,12 +480,12 @@ const ProductComponent = ({ match, history, t: translate }) => {
 
                                         <div className="p-2">
                                           <Row className="align-items-center">
-                                            <Col md={5}>Status</Col>
+                                            <Col md={5}>Model</Col>
                                             <Col>
                                               <Select
-                                                value={selectedProductStatus}
+                                                value={selectedProductModel}
                                                 onChange={option => {
-                                                  handleFilterProductStatus(
+                                                  handleFilterProductModel(
                                                     option
                                                   )
                                                 }}
@@ -477,33 +493,9 @@ const ProductComponent = ({ match, history, t: translate }) => {
                                                   {
                                                     label: "Any",
                                                     value: 0,
-                                                    coloumn: "current_status",
+                                                    coloumn: "model",
                                                   },
-                                                  ...vesselStatusOptionGroup,
-                                                ]}
-                                                classNamePrefix="select2-selection"
-                                              />
-                                            </Col>
-                                          </Row>
-                                        </div>
-                                        <div className="p-2">
-                                          <Row className="align-items-center">
-                                            <Col md={5}>Doc Status</Col>
-                                            <Col>
-                                              <Select
-                                                value={selectedDocStatus}
-                                                onChange={option => {
-                                                  handleFilterDocStatus(option)
-                                                }}
-                                                options={[
-                                                  {
-                                                    label: "Any",
-                                                    value: "0",
-                                                    coloumn: "docStatus",
-                                                  },
-                                                  ...DOCSTATUS.filter(
-                                                    st => st.show == true
-                                                  ),
+                                                  ...vesselModelOptionGroup,
                                                 ]}
                                                 classNamePrefix="select2-selection"
                                               />

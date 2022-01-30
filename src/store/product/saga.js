@@ -40,8 +40,8 @@ function* fetchProducts({ page, sizePerPage, searchQuary, filterQuary }) {
       getProducts,
       page,
       sizePerPage,
-      searchQuary,
-      filterQuary
+      JSON.stringify(searchQuary),
+      JSON.stringify(filterQuary)
     )
     yield put(getProductsSuccess(response))
   } catch (error) {
@@ -49,19 +49,19 @@ function* fetchProducts({ page, sizePerPage, searchQuary, filterQuary }) {
   }
 }
 
-function* fetchProductDetail({ payload: vesselId }) {
+function* fetchProductDetail({ payload: productId }) {
   try {
     ////debugger
-    const response = yield call(getProductDetails, vesselId)
+    const response = yield call(getProductDetails, productId)
     yield put(getProductDetailSuccess(response))
   } catch (error) {
     yield put(getProductDetailFail(error))
   }
 }
 
-function* onUpdateProduct({ payload: vessel }) {
+function* onUpdateProduct({ payload: product }) {
   try {
-    const response = yield call(updateProduct, vessel)
+    const response = yield call(updateProduct, product, product.id)
     console.log(response)
     yield put(updateProductSuccess(response))
   } catch (error) {
@@ -69,18 +69,18 @@ function* onUpdateProduct({ payload: vessel }) {
   }
 }
 
-function* onDeleteProduct({ payload: vessel }) {
+function* onDeleteProduct({ payload: product }) {
   try {
-    const response = yield call(deleteProduct, vessel)
+    const response = yield call(deleteProduct, product)
     yield put(deleteProductSuccess(response))
   } catch (error) {
     yield put(deleteProductFail(error))
   }
 }
 
-function* onAddNewProduct({ payload: vessel }) {
+function* onAddNewProduct({ payload: product }) {
   try {
-    const response = yield call(addNewProduct, vessel)
+    const response = yield call(addNewProduct, product)
     console.log(response)
     yield put(addProductSuccess(response))
   } catch (error) {
@@ -88,7 +88,7 @@ function* onAddNewProduct({ payload: vessel }) {
   }
 }
 
-function* vesselsSaga() {
+function* productsSaga() {
   yield takeEvery(GET_PRODUCTS, fetchProducts)
   yield takeEvery(GET_PRODUCT_DETAIL, fetchProductDetail)
   yield takeEvery(ADD_NEW_PRODUCT, onAddNewProduct)
@@ -96,4 +96,4 @@ function* vesselsSaga() {
   yield takeEvery(DELETE_PRODUCT, onDeleteProduct)
 }
 
-export default vesselsSaga
+export default productsSaga
