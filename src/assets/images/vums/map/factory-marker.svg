@@ -1,0 +1,39 @@
+<svg id="Layer_3" height="512" viewBox="0 0 64 64" width="512" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3">
+    <path d="m15 14a11 11 0 0 0 -11 11v33h22v-33a11 11 0 0 0 -11-11z" fill="#2763bb" />
+    <path d="m18 34a3 3 0 0 0 3-3v-15.213a10.992 10.992 0 0 0 -17 9.213v9z" fill="#3079e6" />
+    <path
+        d="m28 8h-10a4 4 0 0 0 -4 4v2.05c.33-.029.662-.05 1-.05s.67.021 1 .05v-2.05a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l2-.667v-15.333a4 4 0 0 0 -4-4z"
+        fill="#ccc" />
+    <path d="m4 37h22v6h-22z" fill="#f3a845" />
+    <path d="m4 37v4h20a2 2 0 0 0 2-2v-2z" fill="#eecc61" />
+    <path d="m58.263 26.579-2.263-13.579h-6l-2.882 17.294z" fill="#ccc" />
+    <path d="m57 19-1-6h-6l-1 6z" fill="#a9a9a9" />
+    <path d="m12 34v24h24v-32z" fill="#939393" />
+    <path d="m45 31-3-18h-6l-2.294 13.765 2.294-.765v8z" fill="#ccc" />
+    <path d="m12 34v21h18a3 3 0 0 0 3-3v-25z" fill="#a9a9a9" />
+    <path d="m18 36h12v6h-12z" fill="#2763bb" />
+    <path d="m18 36v4h7a3 3 0 0 0 3-3v-1z" fill="#3079e6" />
+    <path d="m36 34v24h24v-32z" fill="#a9a9a9" />
+    <path d="m36 34v21h18a3 3 0 0 0 3-3v-25z" fill="#bababa" />
+    <path d="m42 48h12v10h-12z" fill="#2763bb" />
+    <path d="m42 48v7h7a3 3 0 0 0 3-3v-4z" fill="#3079e6" />
+    <path d="m18 48h12v10h-12z" fill="#2763bb" />
+    <path d="m18 48v7h7a3 3 0 0 0 3-3v-4z" fill="#3079e6" />
+    <path d="m2 58h60v4h-60z" fill="#b9b9b9" />
+    <path d="m2 60h55a2 2 0 0 0 2-2h-57z" fill="#ccc" />
+    <g fill="#1d4a8c">
+        <path d="m23 48h2v10h-2z" />
+        <path d="m23 36h2v6h-2z" />
+        <path d="m47 48h2v10h-2z" />
+    </g>
+    <path d="m42 13h-6l-1 6h8z" fill="#a9a9a9" />
+    <path
+        d="m58 2a3 3 0 0 0 -2.916 2.323 2 2 0 0 0 -2.761 2.761 3 3 0 0 0 -2.323 2.916v3h6v-3a2.979 2.979 0 0 0 -1.041-2.255 1.994 1.994 0 0 0 .786-.786 2.995 2.995 0 1 0 2.255-4.959z"
+        fill="#b9b9b9" />
+    <path d="m42 36h12v6h-12z" fill="#2763bb" />
+    <path d="m42 36v4h7a3 3 0 0 0 3-3v-1z" fill="#3079e6" />
+    <path d="m47 36h2v6h-2z" fill="#1d4a8c" />
+    <path
+        d="m44 2a3 3 0 0 0 -2.916 2.323 2 2 0 0 0 -2.761 2.761 3 3 0 0 0 -2.323 2.916v3h6v-3a2.979 2.979 0 0 0 -1.041-2.255 1.994 1.994 0 0 0 .786-.786 2.995 2.995 0 1 0 2.255-4.959z"
+        fill="#b9b9b9" />
+</svg>

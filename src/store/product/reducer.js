@@ -1,3 +1,4 @@
+import { DOCSTATUSCODES } from "constants/doc_status"
 import { genarateBackendErrors } from "helpers/error.helper"
 import Product from "models/product.model"
 import {
@@ -133,7 +134,10 @@ const products = (state = INIT_STATE, action) => {
     case ADD_PRODUCT_SUCCESS:
       return {
         ...state,
-        document: action.payload.data,
+        document: {
+          ...action.payload.data,
+          doc_status: DOCSTATUSCODES.RELEASE,
+        },
 
         loader: false,
         reload: true,
@@ -175,7 +179,10 @@ const products = (state = INIT_STATE, action) => {
     case UPDATE_PRODUCT_SUCCESS:
       return {
         ...state,
-        document: action.payload.data,
+        document: {
+          ...action.payload.data,
+          doc_status: DOCSTATUSCODES.RELEASE,
+        },
 
         loader: false,
         reload: true,
@@ -291,7 +298,10 @@ const products = (state = INIT_STATE, action) => {
     case GET_PRODUCT_DETAIL_SUCCESS:
       return {
         ...state,
-        document: action.payload.data,
+        document: {
+          ...action.payload.data,
+          doc_status: DOCSTATUSCODES.RELEASE,
+        },
 
         loader: false,
         reload: true,

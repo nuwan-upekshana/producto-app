@@ -1,0 +1,22 @@
+{
+    
+    "vessel.name.any.required" : "The vessel name cannot be empty",
+    "vessel.name.any.empty" : "The vessel name cannot be empty",
+    "vessel.assigned_port.number.greater" : "Please select a port",
+    "vessel.unloading_type.number.greater" : "Please select a Unloading Type",
+    "vessel.assigned_material.number.greater" : "Please select a material type",
+    "vessel.bl_qty.number.greater" : "Please enter valid BL Qty",
+    "vessel.discharging_rate.number.greater" : "Please enter valid discharging rate",
+    "vessel.demurrage_rate.number.greater" : "Please enter valid demurrage rate",
+    "vessel.hatch_count.number.greater" : "Please enter valid Hatch count",
+    
+    "vessel.assigned_port.number.base" : "Please select a port",
+    "vessel.assigned_material.number.base" : "Please select a material type",
+    "vessel.bl_qty.number.base" : "Please enter BL Qty",
+    "vessel.discharging_rate.number.base" : "Please enter discharging rate",
+    "vessel.demurrage_rate.number.base" : "Please enter demurrage rate",
+    "vessel.hatch_count.number.base" : "Please enter Hatch count",
+
+    "vessel.unloading_methods.array.min" : "Vessel need to have at least one unloading method"
+
+}
