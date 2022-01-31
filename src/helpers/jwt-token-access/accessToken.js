@@ -3,6 +3,7 @@ const accessToken =
 export default accessToken
 
 export const getAccessToken = () => {
+  debugger
   const obj = JSON.parse(localStorage.getItem("accessToken"))
   if (obj && obj.token) {
     return `${obj.type} ${obj.token}`

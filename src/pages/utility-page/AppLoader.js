@@ -21,7 +21,7 @@ const AppLoader = props => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setactiveDialog(activeDialog + 1)
-    }, 1000)
+    }, 2000)
     if (activeDialog == 5) {
       clearTimeout(timer)
       history.push("/products")

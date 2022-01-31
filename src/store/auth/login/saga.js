@@ -60,7 +60,7 @@ function* loginUser({ payload: { user, history } }) {
       localStorage.setItem("CSPIN", CSPINOFF)
       yield put(loginSuccess(response))
     }
-    history.push("/products")
+    history.push("/auth/loader")
   } catch (error) {
     console.log(error)
     yield put(apiError(error))

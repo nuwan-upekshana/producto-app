@@ -35,23 +35,49 @@ axiosApi.interceptors.response.use(
 )
 
 export async function get(url, config = {}) {
-  return await axiosApi.get(url, { ...config }).then(response => response.data)
+  return await axiosApi
+    .get(url, {
+      headers: {
+        Authorization: getAccessToken(),
+      },
+    })
+    .then(response => response.data)
 }
 
 export async function post(url, data, config = {}) {
   return await axiosApi
-    .post(url, { ...data }, { ...config })
+    .post(
+      url,
+      { ...data },
+      {
+        headers: {
+          Authorization: getAccessToken(),
+        },
+      }
+    )
     .then(response => response.data)
 }
 
 export async function put(url, data, config = {}) {
   return await axiosApi
-    .put(url, { ...data }, { ...config })
+    .put(
+      url,
+      { ...data },
+      {
+        headers: {
+          Authorization: getAccessToken(),
+        },
+      }
+    )
     .then(response => response.data)
 }
 
 export async function del(url, config = {}) {
   return await axiosApi
-    .delete(url, { ...config })
+    .delete(url, {
+      headers: {
+        Authorization: getAccessToken(),
+      },
+    })
     .then(response => response.data)
 }
