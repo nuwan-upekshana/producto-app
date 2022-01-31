@@ -6,7 +6,8 @@ import accessToken, { getAccessToken } from "./jwt-token-access/accessToken"
 const token = accessToken
 
 //apply base url for axios
-const API_URL = "https://producto-api.azurewebsites.net/api/"
+//const API_URL = "http://localhost:8081" - DEV
+const API_URL = "https://producto-api.azurewebsites.net/api" //- PROD
 
 const axiosApi = axios.create({
   baseURL: API_URL,
@@ -37,6 +38,7 @@ axiosApi.interceptors.response.use(
 export async function get(url, config = {}) {
   return await axiosApi
     .get(url, {
+      ...config,
       headers: {
         Authorization: getAccessToken(),
       },
@@ -50,6 +52,7 @@ export async function post(url, data, config = {}) {
       url,
       { ...data },
       {
+        ...config,
         headers: {
           Authorization: getAccessToken(),
         },
@@ -64,6 +67,7 @@ export async function put(url, data, config = {}) {
       url,
       { ...data },
       {
+        ...config,
         headers: {
           Authorization: getAccessToken(),
         },
@@ -75,6 +79,7 @@ export async function put(url, data, config = {}) {
 export async function del(url, config = {}) {
   return await axiosApi
     .delete(url, {
+      ...config,
       headers: {
         Authorization: getAccessToken(),
       },
